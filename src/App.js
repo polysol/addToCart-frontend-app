@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import AddProduct from "./AddProduct";
 import SearchProduct from "./SearchProduct";
 import Cart from "./Cart";
+import {Route,BrowserRouter} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,9 +53,15 @@ function App() {
     }
   return (
     <div className={classes.root}>
-        <Button variant="outlined" id="sale" onClick={(e) => showHide(e)} >Πουλησε Αντικειμενο</Button>
-        <Button variant="outlined" id="search" className={classes.search} onClick={(e) => showHide(e)}>Αναζητησε Αντικειμενο</Button>
-        <Button variant="outlined" id="cart" className={classes.cart} onClick={(e) => showHide(e)}>Καλαθι Αγορων</Button>
+        <BrowserRouter>
+        <Route render={({ history}) => (
+            <React.Fragment>
+            <Button variant="outlined" id="sale" onClick={(e) => {showHide(e); history.push('/add')}} >Πουλησε Αντικειμενο</Button>
+            <Button variant="outlined" id="search" className={classes.search} onClick={(e) => {showHide(e); history.push('/search')}} >Αναζητησε Αντικειμενο</Button>
+            <Button variant="outlined" id="cart" className={classes.cart} onClick={(e) => {showHide(e); history.push('/cart')}}>Καλαθι Αγορων</Button>
+            </React.Fragment>
+        )} />
+        </BrowserRouter>
         {addition ? <AddProduct /> : search ? <SearchProduct /> : cart ? <Cart /> : null}
     </div>
   );
