@@ -33,6 +33,25 @@ function AddProduct() {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <TextField
+                            id="email"
+                            name="email"
+                            label="Email"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField id="city" name="city" label="Πόλη" fullWidth />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                            id="zip"
+                            name="zip"
+                            label="Τ.Κ"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
                             id="object"
                             name="object"
                             label="Αντικείμενο προς πώληση"
@@ -52,27 +71,6 @@ function AddProduct() {
                             id="price"
                             name="price"
                             label="Τιμή αντικειμένου"
-                            fullWidth
-                            autoComplete="shipping address-line2"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="email"
-                            name="email"
-                            label="Email"
-                            fullWidth
-                            autoComplete="shipping address-level2"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField id="city" name="city" label="Πόλη" fullWidth />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="zip"
-                            name="zip"
-                            label="Τ.Κ"
                             fullWidth
                         />
                     </Grid>

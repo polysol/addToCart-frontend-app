@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cart: {
         backgroundColor: 'green',
-    }
+    },
 }));
 
 function App() {
