@@ -62,6 +62,7 @@ function Cart() {
                     />
                 </MuiThemeProvider>
             </div>
+            <h4 style={{ color: "black"}}>Σύνολο: <i>12.00$</i></h4>
         </div>
     );
 }
