@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7b67d393-99e9-4a7f-a86c-0c8bf139ef70" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SearchProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +118,9 @@
       <workItem from="1596464223729" duration="5000" />
       <workItem from="1596521518463" duration="15158000" />
       <workItem from="1596607923503" duration="27000" />
-      <workItem from="1596610846923" duration="12567000" />
+      <workItem from="1596610846923" duration="12768000" />
+      <workItem from="1596712388391" duration="362000" />
+      <workItem from="1596714985797" duration="7590000" />
     </task>
     <task id="LOCAL-00001" summary="app component">
       <created>1596202848099</created>
@@ -145,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596548023967</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="forms ready">
+      <created>1596626891727</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596626891727</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add total price">
+      <created>1596712709372</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596712709372</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +180,8 @@
     <MESSAGE value="app component" />
     <MESSAGE value="main components" />
     <MESSAGE value="forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="forms" />
+    <MESSAGE value="forms ready" />
+    <MESSAGE value="add total price" />
+    <option name="LAST_COMMIT_MESSAGE" value="add total price" />
   </component>
 </project>
