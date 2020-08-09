@@ -19,7 +19,7 @@ function Cart() {
         }
     });
 
-    const columns = ["Προϊόν", "Περιγραφή προϊόντος", "Τιμή"];
+    const columns = ["Κωδικός Προϊόντος", "Προϊόν", "Περιγραφή προϊόντος", "Τιμή"];
 
     const options = {
         filter: false,

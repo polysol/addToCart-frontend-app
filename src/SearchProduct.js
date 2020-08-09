@@ -39,7 +39,7 @@ function SearchProduct() {
         }
     });
 
-    const columns = [
+    const columns = [ "Κωδικός Προϊόντος",
         {
         label: "Προϊόν",
         options: {
