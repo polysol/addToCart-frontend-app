@@ -24,9 +24,6 @@ function AddProduct() {
         console.log("zip: "+zip)
         console.log("info: "+info)
         console.log("price: "+price)
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        fetch(proxyurl+ "http://localhost:3500/cartAll").then(response => response.json()).then(data => console.log(data));
-
 
     };
     const surnameChange  = e => {

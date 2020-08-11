@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import MUIDataTable from "mui-datatables";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
+const axios = require('axios');
 
 function Cart() {
+    const [data, setData] = useState([]);
     const getMuiTheme = () => createMuiTheme({
         overrides: {
             MuiCheckbox: {
@@ -25,7 +27,12 @@ function Cart() {
         filter: false,
         selectableRows: 'single' || 'multiple',
         selectableRowsOnClick: true,
-        onRowsSelect: function(row) {
+        onRowSelectionChange: function(row) {
+            let he = row[0].dataIndex
+            console.log(data[he][0])
+        },
+        onRowsDelete: function(row) {
+            console.log("dsufhuifs")
         },
         download: false,
         print: false,
@@ -43,13 +50,20 @@ function Cart() {
 
     };
 
-    const data = [
-        ["Joe Jones", "Computer Programmer"],
-        ["Jacky Jackson", "Business Consultant"],
-        ["Jo Jo", "Software Developer"],
-        ["Donna Marie", "Business Manager"],
-        ["Donna Marie", "Business Manager"]
-    ];
+    const temp_data = [];
+
+
+    useEffect(() => {
+        const apiCall = async () => {
+            await axios.get("http://localhost:3500/cartAll")
+                .then(res => {
+                    res.data.forEach(el => temp_data.push(Object.values(el)));
+                });
+            setData(temp_data)
+        };
+        apiCall();
+    },[]);
+
     return (
         <div style={{ backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width:'calc(100vw - 5em)'}} >
             <div style={{paddingTop: '5%'}}>

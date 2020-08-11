@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7b67d393-99e9-4a7f-a86c-0c8bf139ef70" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchProduct.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +22,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../addtocartbackendapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="C:\Users\ksaadmin\IdeaProjects\addToCart-frontend-app\node_modules\eslint" />
-    <property name="node.js.selected.package.standard" value="C:\Users\ksaadmin\IdeaProjects\addToCart-frontend-app\node_modules\eslint" />
+    <property name="node.js.selected.package.eslint" value="C:/Users/ksaadmin/IdeaProjects/addToCart-frontend-app/node_modules" />
+    <property name="node.js.selected.package.standard" value="C:/Users/ksaadmin/IdeaProjects/addToCart-frontend-app/node_modules/standard" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -140,6 +141,7 @@
       <workItem from="1596610846923" duration="12768000" />
       <workItem from="1596712388391" duration="362000" />
       <workItem from="1596714985797" duration="7590000" />
+      <workItem from="1597132763024" duration="16510000" />
     </task>
     <task id="LOCAL-00001" summary="app component">
       <created>1596202848099</created>
@@ -176,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596712709372</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="addProduct">
+      <created>1597068958232</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597068958232</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +210,7 @@
     <MESSAGE value="forms" />
     <MESSAGE value="forms ready" />
     <MESSAGE value="add total price" />
-    <option name="LAST_COMMIT_MESSAGE" value="add total price" />
+    <MESSAGE value="addProduct" />
+    <option name="LAST_COMMIT_MESSAGE" value="addProduct" />
   </component>
 </project>
