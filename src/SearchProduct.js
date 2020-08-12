@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import MUIDataTable from "mui-datatables";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from '@material-ui/icons/Add';
@@ -7,8 +7,12 @@ import IconButton from "@material-ui/core/IconButton";
 import {createMuiTheme,MuiThemeProvider} from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
+const axios = require('axios');
 
 function SearchProduct() {
+    const [data, setData] = useState([]);
+    const [code, setCode] = useState(0);
+    const [prodTitle, setProdTitle] = useState("");
     const getMuiTheme = () => createMuiTheme({
         overrides: {
             MuiCheckbox: {
@@ -48,8 +52,9 @@ function SearchProduct() {
                         required
                         value={value}
                         control={<TextField value={value} />}
-                        onChange={event => updateValue(event.target.value)}
+                        onChange={e => updateValue(e.target.value)}
                     />
+
                 )
             }
         }
@@ -118,7 +123,9 @@ function SearchProduct() {
         filter: false,
         selectableRows: 'single',
         selectableRowsOnClick: true,
-        onRowsSelect: function(row) {
+        onRowSelectionChange: function(row) {
+            let index = row[0].dataIndex;
+            setCode(data[index][0]);
         },
         download: false,
         print: false,
@@ -127,9 +134,8 @@ function SearchProduct() {
             <React.Fragment>
             <Tooltip title="Προσθήκη στο καλάθι">
                 <IconButton
-                    onClick={() => {
-                        console.log("test1");
-
+                    onClick={async () => {
+                        await addToCart(code);
                     }}
                 >
                     <AddIcon />
@@ -138,7 +144,7 @@ function SearchProduct() {
             <Tooltip title="Αποθήκευση αλλαγών">
         <IconButton
         onClick={() => {
-            console.log("test2");
+            console.log(prodTitle);
     }}
 >
 <SaveIcon />
@@ -160,10 +166,26 @@ function SearchProduct() {
     };
 
 
-    const data = [
-        ["Ανεμιστήρας", "Σε πολύ καλή κατάσταση","15.00$", "aggelo@gmail.com", "Πάτρα"],
-        ["Ψυγείο", "Αγοράστηκε πριν 2 χρόνια και πωλείται λόγω αγοράς καινούριου","230.00$", "coaler@gmail.com", "Αθήνα"]
-    ];
+    const temp_data = [];
+    useEffect(() => {
+        apiCall();
+    },[]);
+
+    const apiCall = async () => {
+        await axios.get("http://localhost:3500/all")
+            .then(res => {
+                res.data.forEach(el => {
+                    temp_data.push(Object.values(el));
+                });
+            });
+        setData(temp_data);
+    };
+
+    const addToCart = async (prodCode) => {
+        await axios.post("http://localhost:3500/add?id="+prodCode);
+        await apiCall()
+    };
+
     return (
         <div style={{ backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width:'calc(100vw - 5em)'}} >
             <div style={{paddingTop: '5%'}}>

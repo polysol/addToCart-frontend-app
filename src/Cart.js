@@ -5,6 +5,8 @@ const axios = require('axios');
 
 function Cart() {
     const [data, setData] = useState([]);
+    const [code, setCode] = useState(0);
+    const [total, setTotal] = useState(0);
     const getMuiTheme = () => createMuiTheme({
         overrides: {
             MuiCheckbox: {
@@ -28,11 +30,11 @@ function Cart() {
         selectableRows: 'single' || 'multiple',
         selectableRowsOnClick: true,
         onRowSelectionChange: function(row) {
-            let he = row[0].dataIndex
-            console.log(data[he][0])
+            let index = row[0].dataIndex;
+            setCode(data[index][0]);
         },
-        onRowsDelete: function(row) {
-            console.log("dsufhuifs")
+        onRowsDelete: async function() {
+           await deleteRow(code);
         },
         download: false,
         print: false,
@@ -51,18 +53,29 @@ function Cart() {
     };
 
     const temp_data = [];
-
-
+    let priceArray = [];
     useEffect(() => {
-        const apiCall = async () => {
-            await axios.get("http://localhost:3500/cartAll")
-                .then(res => {
-                    res.data.forEach(el => temp_data.push(Object.values(el)));
-                });
-            setData(temp_data)
-        };
-        apiCall();
+            apiCall();
     },[]);
+
+    const apiCall = async () => {
+        await axios.get("http://localhost:3500/cartAll")
+            .then(res => {
+                res.data.forEach(el => {
+                    temp_data.push(Object.values(el));
+                });
+            });
+        setData(temp_data);
+        for(let elem of temp_data){
+            priceArray.push(Number(elem[3]))
+        }
+        setTotal(priceArray.reduce((a, b) => a + b, 0));
+    };
+
+    const deleteRow = async (prodCode) => {
+         await axios.delete("http://localhost:3500/remove?id="+prodCode);
+         await apiCall()
+    };
 
     return (
         <div style={{ backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width:'calc(100vw - 5em)'}} >
@@ -76,7 +89,7 @@ function Cart() {
                     />
                 </MuiThemeProvider>
             </div>
-            <h4 style={{ color: "black"}}>Σύνολο: <i>12.00$</i></h4>
+            <h4 style={{ color: "black"}}>Σύνολο: <i>{total}</i></h4>
         </div>
     );
 }
