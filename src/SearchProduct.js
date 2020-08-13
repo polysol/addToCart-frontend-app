@@ -5,16 +5,27 @@ import AddIcon from '@material-ui/icons/Add';
 import SaveIcon from '@material-ui/icons/Save';
 import IconButton from "@material-ui/core/IconButton";
 import {createMuiTheme,MuiThemeProvider} from '@material-ui/core/styles';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 const axios = require('axios');
 
 function SearchProduct() {
     const [data, setData] = useState([]);
     const [code, setCode] = useState(0);
-    const [prodTitle, setProdTitle] = useState("");
+    const [object, setObject] = useState("");
+    const [info, setInfo] = useState("");
+    const [price, setPrice] = useState("");
+    const [email, setEmail] = useState("");
+    const [city, setCity] = useState("");
     const getMuiTheme = () => createMuiTheme({
         overrides: {
+            MuiInput: {
+                input: {
+                    "&::placeholder": {
+                        color: "black",
+                        opacity: 0.7
+                    }
+                }
+            },
             MuiCheckbox: {
                 root: {
                     display: 'none'
@@ -46,15 +57,12 @@ function SearchProduct() {
         {
         label: "Προϊόν",
         options: {
-            customBodyRender: (value, tableMeta, updateValue) => {
+            customBodyRender: (value) => {
                 return (
-                    <FormControlLabel
-                        required
-                        value={value}
-                        control={<TextField value={value} />}
-                        onChange={e => updateValue(e.target.value)}
+                    <TextField
+                        placeholder={value}
+                        onChange={objectChange}
                     />
-
                 )
             }
         }
@@ -62,13 +70,11 @@ function SearchProduct() {
         {
             label: "Περιγραφή",
             options: {
-                customBodyRender: (value, tableMeta, updateValue) => {
+                customBodyRender: (value) => {
                     return (
-                        <FormControlLabel
-                            required
-                            value={value}
-                            control={<TextField value={value} />}
-                            onChange={event => updateValue(event.target.value)}
+                        <TextField
+                            placeholder={value}
+                            onChange={infoChange}
                         />
                     )
                 }
@@ -77,13 +83,11 @@ function SearchProduct() {
         {
         label: "Τιμή",
         options: {
-            customBodyRender: (value, tableMeta, updateValue) => {
+            customBodyRender: (value) => {
                 return (
-                    <FormControlLabel
-                        required
-                        value={value}
-                        control={<TextField value={value} />}
-                        onChange={event => updateValue(event.target.value)}
+                    <TextField
+                        placeholder={value}
+                        onChange={priceChange}
                     />
                 )
             }
@@ -91,30 +95,26 @@ function SearchProduct() {
     }, {
         label: "Email Πωλητή",
         options: {
-        customBodyRender: (value, tableMeta, updateValue) => {
-            return (
-                <FormControlLabel
-                    required
-                    value={value}
-                    control={<TextField value={value} />}
-                    onChange={event => updateValue(event.target.value)}
-                />
-            )
-        }
+            customBodyRender: (value) => {
+                return (
+                    <TextField
+                        placeholder={value}
+                        onChange={emailChange}
+                    />
+                )
+            }
     }
 }, {
         label: "Πόλη",
             options: {
-            customBodyRender: (value, tableMeta, updateValue) => {
-                return (
-                    <FormControlLabel
-                        required
-                        value={value}
-                        control={<TextField value={value} />}
-                        onChange={event => updateValue(event.target.value)}
-                    />
-                )
-            }
+                customBodyRender: (value) => {
+                    return (
+                        <TextField
+                            placeholder={value}
+                            onChange={cityChange}
+                        />
+                    )
+                }
         }
     }
     ];
@@ -143,9 +143,9 @@ function SearchProduct() {
             </Tooltip>
             <Tooltip title="Αποθήκευση αλλαγών">
         <IconButton
-        onClick={() => {
-            console.log(prodTitle);
-    }}
+        onClick={async () => {
+            await updateRow(code,object,city,info,email,price);
+        }}
 >
 <SaveIcon />
     </IconButton>
@@ -184,6 +184,44 @@ function SearchProduct() {
     const addToCart = async (prodCode) => {
         await axios.post("http://localhost:3500/add?id="+prodCode);
         await apiCall()
+    };
+
+    const updateRow = async (code,object,city,info,email,price) => {
+        const data = {
+            prodTitle: object,
+            city: city,
+            prodDesc: info,
+            email: email,
+            price: Number(price)
+        };
+         axios({
+            method: 'put',
+            url: 'http://localhost:3500/edit?id='+code,
+            data: data
+        }).then(res => {
+            console.log(res)
+             apiCall();
+         });
+    };
+
+    const objectChange = e => {
+        setObject(e.target.value);
+    };
+
+    const priceChange = e => {
+        setPrice(e.target.value);
+    };
+
+    const emailChange = e => {
+        setEmail(e.target.value);
+    };
+
+    const infoChange = e => {
+        setInfo(e.target.value);
+    };
+
+    const cityChange = e => {
+        setCity(e.target.value);
     };
 
     return (

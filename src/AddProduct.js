@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
+const axios = require('axios');
 
 function AddProduct() {
 
@@ -16,16 +17,23 @@ function AddProduct() {
     const [price, setPrice] = useState("");
     const submitForm = e => {
         e.preventDefault();
-        console.log("surname: "+surname)
-        console.log("name: "+name)
-        console.log("email: "+email)
-        console.log("city: "+city)
-        console.log("object: "+object)
-        console.log("zip: "+zip)
-        console.log("info: "+info)
-        console.log("price: "+price)
-
+        const data = {
+            name: name,
+            surname: surname,
+            zip: zip,
+            prodTitle: object,
+            city: city,
+            prodDesc: info,
+            email: email,
+            price: Number(price)
+        };
+        axios({
+            method: 'post',
+            url: 'http://localhost:3500/create',
+            data: data
+        })
     };
+
     const surnameChange  = e => {
         setSurname(e.target.value)
     };
