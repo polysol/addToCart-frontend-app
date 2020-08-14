@@ -20,7 +20,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../addtocartbackendapp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,7 +141,10 @@
       <workItem from="1596714985797" duration="7590000" />
       <workItem from="1597132763024" duration="16733000" />
       <workItem from="1597213731907" duration="19330000" />
-      <workItem from="1597298784403" duration="18125000" />
+      <workItem from="1597298784403" duration="18182000" />
+      <workItem from="1597386426559" duration="579000" />
+      <workItem from="1597387034718" duration="24000" />
+      <workItem from="1597387120548" duration="2542000" />
     </task>
     <task id="LOCAL-00001" summary="app component">
       <created>1596202848099</created>
@@ -199,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597241833200</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ready">
+      <created>1597325224456</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597325224456</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +237,7 @@
     <MESSAGE value="addProduct" />
     <MESSAGE value="cart development" />
     <MESSAGE value="search dev" />
-    <option name="LAST_COMMIT_MESSAGE" value="search dev" />
+    <MESSAGE value="ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready" />
   </component>
 </project>

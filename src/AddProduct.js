@@ -14,7 +14,7 @@ function AddProduct() {
     const [zip, setZip] = useState("");
     const [object, setObject] = useState("");
     const [info, setInfo] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
     const submitForm = e => {
         e.preventDefault();
         const data = {
@@ -31,7 +31,7 @@ function AddProduct() {
             method: 'post',
             url: 'http://localhost:3500/create',
             data: data
-        })
+        }).then (res => alert("Η εγγραφή καταχωρήθηκε επιτυχώς"))
     };
 
     const surnameChange  = e => {

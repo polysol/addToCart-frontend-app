@@ -10,6 +10,7 @@ const axios = require('axios');
 
 function SearchProduct() {
     const [data, setData] = useState([]);
+    const [index, setIndex] = useState(0);
     const [code, setCode] = useState(0);
     const [object, setObject] = useState("");
     const [info, setInfo] = useState("");
@@ -125,6 +126,7 @@ function SearchProduct() {
         selectableRowsOnClick: true,
         onRowSelectionChange: function(row) {
             let index = row[0].dataIndex;
+            setIndex(index);
             setCode(data[index][0]);
         },
         download: false,
@@ -206,22 +208,42 @@ function SearchProduct() {
 
     const objectChange = e => {
         setObject(e.target.value);
+        setPrice(data[index][3]);
+        setEmail(data[index][4]);
+        setInfo(data[index][2]);
+        setCity(data[index][5]);
     };
 
     const priceChange = e => {
         setPrice(e.target.value);
+        setObject(data[index][1]);
+        setEmail(data[index][4]);
+        setInfo(data[index][2]);
+        setCity(data[index][5]);
     };
 
     const emailChange = e => {
         setEmail(e.target.value);
+        setObject(data[index][1]);
+        setPrice(data[index][3]);
+        setInfo(data[index][2]);
+        setCity(data[index][5]);
     };
 
     const infoChange = e => {
         setInfo(e.target.value);
+        setObject(data[index][1]);
+        setEmail(data[index][4]);
+        setPrice(data[index][3]);
+        setCity(data[index][5]);
     };
 
     const cityChange = e => {
         setCity(e.target.value);
+        setObject(data[index][1]);
+        setEmail(data[index][4]);
+        setInfo(data[index][2]);
+        setPrice(data[index][3]);
     };
 
     return (
