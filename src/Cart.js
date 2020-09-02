@@ -89,7 +89,7 @@ function Cart() {
                     />
                 </MuiThemeProvider>
             </div>
-            <h4 style={{ color: "black"}}>Σύνολο: <i>{total}</i></h4>
+            <h4 style={{ color: "black"}}>Σύνολο: <i>{total}</i> $</h4>
         </div>
     );
 }
