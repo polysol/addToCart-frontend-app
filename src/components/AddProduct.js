@@ -3,10 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
+import {useHistory} from "react-router-dom";
 const axios = require('axios');
 
 function AddProduct() {
 
+    const history = useHistory();
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
@@ -31,7 +33,10 @@ function AddProduct() {
             method: 'post',
             url: 'http://localhost:3500/create',
             data: data
-        }).then (res => alert("Η εγγραφή καταχωρήθηκε επιτυχώς"))
+        }).then (res => {
+            alert("Η εγγραφή καταχωρήθηκε επιτυχώς");
+            history.push('/')
+        })
     };
 
     const surnameChange  = e => {

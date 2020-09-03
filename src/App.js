@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import AddProduct from "./AddProduct";
-import SearchProduct from "./SearchProduct";
-import Cart from "./Cart";
-import {Route,BrowserRouter,Switch} from 'react-router-dom';
+import AddProduct from "./components/AddProduct";
+import SearchProduct from "./components/SearchProduct";
+import Cart from "./components/Cart";
+import EditProduct from "./components/EditProduct";
+import {Route,BrowserRouter,Switch,useParams} from 'react-router-dom';
+import {Edit} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'green',
     },
 }));
+
+function BlogPost() {
+    let { slug } = useParams();
+    return <EditProduct code={slug}/>;
+}
 
 function App() {
     const classes = useStyles();
@@ -69,6 +76,7 @@ function App() {
                 <Route path="/add" component={AddProduct}  />
                 <Route path="/search" component={SearchProduct}  />
                 <Route path="/cart" component={Cart}/>
+                <Route path="/edit/:slug" component={BlogPost}/>
                 {/*<Route path="/upload-persons/:seminarId" component={PersonUpload}/>*/}
             </Switch>
 

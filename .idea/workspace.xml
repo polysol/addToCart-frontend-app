@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7b67d393-99e9-4a7f-a86c-0c8bf139ef70" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchProduct.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +39,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\workspace\addtocartfrontendapp\src\components" />
       <recent name="C:\workspace\addtocartfrontendapp\src" />
       <recent name="C:\workspace\addtocartfrontendapp\public" />
     </key>
@@ -146,7 +149,8 @@
       <workItem from="1597387034718" duration="24000" />
       <workItem from="1597387120548" duration="2616000" />
       <workItem from="1597391309695" duration="14000" />
-      <workItem from="1599028651357" duration="3766000" />
+      <workItem from="1599028651357" duration="18242000" />
+      <workItem from="1599113606992" duration="7511000" />
     </task>
     <task id="LOCAL-00001" summary="app component">
       <created>1596202848099</created>
@@ -218,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597389713249</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="route fix">
+      <created>1599032488386</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1599032488386</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +259,7 @@
     <MESSAGE value="search dev" />
     <MESSAGE value="ready" />
     <MESSAGE value="update fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="update fix" />
+    <MESSAGE value="route fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="route fix" />
   </component>
 </project>
