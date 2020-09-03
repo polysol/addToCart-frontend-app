@@ -25,15 +25,19 @@ function EditProduct(props) {
     const apiCall = async () => {
         await axios.get("http://localhost:3500/getProduct?id="+props.code)
             .then(res => {
-                setInfo(res.data.prod_desc);
-                setName(res.data.name);
-                setSurname(res.data.surname);
-                setEmail(res.data.email);
-                setCity(res.data.city);
-                setZip(res.data.zip);
-                setPrice(res.data.price);
-                setObject(res.data.prod_title);
-                console.log(res.data)
+                if(res.data) {
+                    setInfo(res.data.prod_desc);
+                    setName(res.data.name);
+                    setSurname(res.data.surname);
+                    setEmail(res.data.email);
+                    setCity(res.data.city);
+                    setZip(res.data.zip);
+                    setPrice(res.data.price);
+                    setObject(res.data.prod_title);
+                } else {
+                    alert("Δεν υπάρχει προϊόν με κωδικό "+props.code);
+                    history.push(`/`);
+                }
             })
             .catch((error)=>{
                 alert(error);
