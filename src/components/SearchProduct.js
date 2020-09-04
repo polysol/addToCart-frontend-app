@@ -4,7 +4,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
-import {createMuiTheme,MuiThemeProvider} from '@material-ui/core/styles';
+import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import {useHistory} from "react-router-dom";
 const axios = require('axios');
 
@@ -42,13 +42,13 @@ function SearchProduct() {
         }
     });
 
-    const columns = [ "Κωδικός Προϊόντος", "Προϊόν", "Περιγραφή", "Τιμή", "Email Πωλητή", "Πόλη"];
+    const columns = ["Κωδικός Προϊόντος", "Προϊόν", "Περιγραφή", "Τιμή", "Email Πωλητή", "Πόλη"];
 
     const options = {
         filter: false,
         selectableRows: 'single',
         selectableRowsOnClick: true,
-        onRowSelectionChange: function(row) {
+        onRowSelectionChange: function (row) {
             let index = row[0].dataIndex;
             setIndex(index);
             setCode(data[index][0]);
@@ -57,34 +57,34 @@ function SearchProduct() {
         print: false,
         viewColumns: false,
         customToolbarSelect: selectedRows => (
-            <React.Fragment>
+            <>
                 <Tooltip title="Επεξεργασία">
                     <IconButton
                         onClick={async () => {
                             history.push({
                                 pathname: `/edit/${code}`,
-                                state:{
+                                state: {
                                     code: code
                                 }
                             });
                         }}
                     >
-                        <EditIcon />
+                        <EditIcon/>
                     </IconButton>
                 </Tooltip>
-            <Tooltip title="Προσθήκη στο καλάθι">
-                <IconButton
-                    onClick={async () => {
-                        await addToCart(code);
-                        await history.push("/cart")
-                    }}
-                >
-                    <AddIcon />
-                </IconButton>
-            </Tooltip>
-</React.Fragment>
+                <Tooltip title="Προσθήκη στο καλάθι">
+                    <IconButton
+                        onClick={async () => {
+                            await addToCart(code);
+                            await history.push("/cart")
+                        }}
+                    >
+                        <AddIcon/>
+                    </IconButton>
+                </Tooltip>
+            </>
         ),
-        rowsPerPageOptions:  [] ,
+        rowsPerPageOptions: [],
         textLabels: {
             selectedRows: {
                 text: "επιλεγμένα προϊόντα"
@@ -100,7 +100,7 @@ function SearchProduct() {
     const temp_data = [];
     useEffect(() => {
         apiCall();
-    },[]);
+    }, []);
 
     const apiCall = async () => {
         await axios.get("http://localhost:3500/all")
@@ -108,27 +108,27 @@ function SearchProduct() {
                 res.data.forEach(el => {
                     temp_data.push(Object.values(el));
                 });
-            });
+            }).catch(() => alert("Παρουσιάστηκε κάποιο σφάλμα."));
         setData(temp_data);
     };
 
     const addToCart = async (prodCode) => {
-        await axios.post("http://localhost:3500/add?id="+prodCode);
+        await axios.post("http://localhost:3500/add?id=" + prodCode).catch(() => alert("Παρουσιάστηκε κάποιο σφάλμα."));
         await apiCall()
     };
 
     return (
-        <div style={{ backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width:'calc(100vw - 5em)'}} >
+        <div style={{backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width: 'calc(100vw - 5em)'}}>
             <div style={{paddingTop: '5%'}}>
-        <MuiThemeProvider theme={getMuiTheme()}>
-            <MUIDataTable
-                title={"Προϊόντα προς πώληση"}
-                data={data}
-                columns={columns}
-                options={options}
-            />
-        </MuiThemeProvider>
-        </div>
+                <MuiThemeProvider theme={getMuiTheme()}>
+                    <MUIDataTable
+                        title={"Προϊόντα προς πώληση"}
+                        data={data}
+                        columns={columns}
+                        options={options}
+                    />
+                </MuiThemeProvider>
+            </div>
         </div>
     );
 }

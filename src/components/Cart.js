@@ -29,17 +29,17 @@ function Cart() {
         filter: false,
         selectableRows: 'single' || 'multiple',
         selectableRowsOnClick: true,
-        onRowSelectionChange: function(row) {
+        onRowSelectionChange: function (row) {
             let index = row[0].dataIndex;
             setCode(data[index][0]);
         },
-        onRowsDelete: async function() {
-           await deleteRow(code);
+        onRowsDelete: async function () {
+            await deleteRow(code);
         },
         download: false,
         print: false,
         viewColumns: false,
-        rowsPerPageOptions:  [] ,
+        rowsPerPageOptions: [],
         textLabels: {
             selectedRows: {
                 text: "επιλεγμένα προϊόντα"
@@ -55,8 +55,8 @@ function Cart() {
     const temp_data = [];
     let priceArray = [];
     useEffect(() => {
-            apiCall();
-    },[]);
+        apiCall();
+    }, []);
 
     const apiCall = async () => {
         await axios.get("http://localhost:3500/cartAll")
@@ -64,21 +64,22 @@ function Cart() {
                 res.data.forEach(el => {
                     temp_data.push(Object.values(el));
                 });
-            });
+            })
+            .catch(() => alert("Παρουσιάστηκε κάποιο σφάλμα."));
         setData(temp_data);
-        for(let elem of temp_data){
+        for (let elem of temp_data) {
             priceArray.push(Number(elem[3]))
         }
         setTotal(priceArray.reduce((a, b) => a + b, 0));
     };
 
     const deleteRow = async (prodCode) => {
-         await axios.delete("http://localhost:3500/remove?id="+prodCode);
-         await apiCall()
+        await axios.delete("http://localhost:3500/remove?id=" + prodCode).catch(()=>alert("Παρουσιάστηκε κάποιο σφάλμα."));
+        await apiCall()
     };
 
     return (
-        <div style={{ backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width:'calc(100vw - 5em)'}} >
+        <div style={{backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width: 'calc(100vw - 5em)'}}>
             <div style={{paddingTop: '5%'}}>
                 <MuiThemeProvider theme={getMuiTheme()}>
                     <MUIDataTable
@@ -89,7 +90,7 @@ function Cart() {
                     />
                 </MuiThemeProvider>
             </div>
-            <h4 style={{ color: "black"}}>Σύνολο: <i>{total}</i> $</h4>
+            <h4 style={{color: "black"}}>Σύνολο: <i>{total}</i> $</h4>
         </div>
     );
 }

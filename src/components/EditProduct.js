@@ -39,8 +39,8 @@ function EditProduct(props) {
                     history.push(`/`);
                 }
             })
-            .catch((error)=>{
-                alert(error);
+            .catch(()=>{
+                alert("Παρουσιάστηκε κάποιο σφάλμα.");
             });
     };
 
@@ -63,8 +63,8 @@ function EditProduct(props) {
         }).then(res => {
             history.push(`/search`);
         })
-            .catch((error)=>{
-                alert(error);
+            .catch(()=>{
+                alert("Παρουσιάστηκε κάποιο σφάλμα.");
             });
     };
 

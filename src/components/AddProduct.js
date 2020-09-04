@@ -7,7 +7,6 @@ import {useHistory} from "react-router-dom";
 const axios = require('axios');
 
 function AddProduct() {
-
     const history = useHistory();
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
@@ -33,13 +32,13 @@ function AddProduct() {
             method: 'post',
             url: 'http://localhost:3500/create',
             data: data
-        }).then (res => {
+        }).then(res => {
             alert("Η εγγραφή καταχωρήθηκε επιτυχώς");
             history.push('/')
-        })
+        }).catch(() => alert("Παρουσιάστηκε κάποιο σφάλμα."))
     };
 
-    const surnameChange  = e => {
+    const surnameChange = e => {
         setSurname(e.target.value)
     };
 
@@ -73,91 +72,91 @@ function AddProduct() {
 
 
     return (
-        <div style={{ backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width:'calc(100vw - 5em)'}} >
-            <div style={{paddingLeft: '25%', paddingTop: '5%' , width: '50%'}}>
+        <div style={{backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width: 'calc(100vw - 5em)'}}>
+            <div style={{paddingLeft: '25%', paddingTop: '5%', width: '50%'}}>
                 <Typography variant="h6" gutterBottom style={{color: 'black'}}>
                     Καταχώρηση Αντικειμένου Προς Πώληση
                 </Typography>
                 <br></br>
                 <form onSubmit={submitForm}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="firstName"
-                            name="firstName"
-                            label="Όνομα"
-                            fullWidth
-                            value={name}
-                            onChange={nameChange}
-                        />
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="firstName"
+                                name="firstName"
+                                label="Όνομα"
+                                fullWidth
+                                value={name}
+                                onChange={nameChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="lastName"
+                                name="lastName"
+                                label="Επώνυμο"
+                                fullWidth
+                                value={surname}
+                                onChange={surnameChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="email"
+                                name="email"
+                                label="Email"
+                                fullWidth
+                                onChange={emailChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField id="city" name="city" label="Πόλη" fullWidth onChange={cityChange}/>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="zip"
+                                name="zip"
+                                label="Τ.Κ"
+                                fullWidth
+                                onChange={zipChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="object"
+                                name="object"
+                                label="Αντικείμενο προς πώληση"
+                                fullWidth
+                                onChange={objectChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="info"
+                                name="info"
+                                label="Περιγραφή αντικειμένου"
+                                fullWidth
+                                onChange={infoChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                id="price"
+                                name="price"
+                                label="Τιμή αντικειμένου"
+                                fullWidth
+                                onChange={priceChange}
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="lastName"
-                            name="lastName"
-                            label="Επώνυμο"
-                            fullWidth
-                            value={surname}
-                            onChange={surnameChange}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="email"
-                            name="email"
-                            label="Email"
-                            fullWidth
-                            onChange={emailChange}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField id="city" name="city" label="Πόλη" fullWidth onChange={cityChange} />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="zip"
-                            name="zip"
-                            label="Τ.Κ"
-                            fullWidth
-                            onChange={zipChange}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="object"
-                            name="object"
-                            label="Αντικείμενο προς πώληση"
-                            fullWidth
-                            onChange={objectChange}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="info"
-                            name="info"
-                            label="Περιγραφή αντικειμένου"
-                            fullWidth
-                            onChange={infoChange}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            id="price"
-                            name="price"
-                            label="Τιμή αντικειμένου"
-                            fullWidth
-                            onChange={priceChange}
-                        />
-                    </Grid>
-                </Grid>
-                <br></br><br></br>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type = "submit"
-                >
-                    Αποθηκευση
-                </Button>
+                    <br></br><br></br>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                    >
+                        Αποθηκευση
+                    </Button>
                 </form>
             </div>
         </div>

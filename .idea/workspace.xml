@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b67d393-99e9-4a7f-a86c-0c8bf139ef70" name="Default Changelist" comment="">
+    <list default="true" id="7b67d393-99e9-4a7f-a86c-0c8bf139ef70" name="Default Changelist" comment="go to home page if">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchProduct.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,10 @@
       <workItem from="1597387120548" duration="2616000" />
       <workItem from="1597391309695" duration="14000" />
       <workItem from="1599028651357" duration="18242000" />
-      <workItem from="1599113606992" duration="7511000" />
+      <workItem from="1599113606992" duration="7825000" />
+      <workItem from="1599129814669" duration="81000" />
+      <workItem from="1599130299179" duration="871000" />
+      <workItem from="1599221118092" duration="3007000" />
     </task>
     <task id="LOCAL-00001" summary="app component">
       <created>1596202848099</created>
@@ -229,7 +233,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599032488386</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="final version">
+      <created>1599122446387</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1599122446387</updated>
+    </task>
+    <task id="LOCAL-00013" summary="go to home page if product code does not exist">
+      <created>1599131145654</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1599131145654</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +278,8 @@
     <MESSAGE value="ready" />
     <MESSAGE value="update fix" />
     <MESSAGE value="route fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="route fix" />
+    <MESSAGE value="final version" />
+    <MESSAGE value="go to home page if product code does not exist" />
+    <option name="LAST_COMMIT_MESSAGE" value="go to home page if product code does not exist" />
   </component>
 </project>
