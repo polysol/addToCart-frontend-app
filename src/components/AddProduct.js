@@ -8,25 +8,29 @@ const axios = require('axios');
 
 function AddProduct() {
     const history = useHistory();
-    const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [email, setEmail] = useState("");
-    const [city, setCity] = useState("");
-    const [zip, setZip] = useState("");
-    const [object, setObject] = useState("");
-    const [info, setInfo] = useState("");
-    const [price, setPrice] = useState(0);
+
+    const [state, setState] = React.useState({
+        name: "",
+        surname: "",
+        zip: "",
+        email: "",
+        city: "",
+        object: "",
+        info: "",
+        price: 0
+    });
+
     const submitForm = e => {
         e.preventDefault();
         const data = {
-            name: name,
-            surname: surname,
-            zip: zip,
-            prodTitle: object,
-            city: city,
-            prodDesc: info,
-            email: email,
-            price: Number(price)
+            name: state.name,
+            surname: state.surname,
+            zip: state.zip,
+            prodTitle: state.object,
+            city: state.city,
+            prodDesc: state.info,
+            email: state.email,
+            price: Number(state.price)
         };
         axios({
             method: 'post',
@@ -38,38 +42,13 @@ function AddProduct() {
         }).catch(() => alert("Παρουσιάστηκε κάποιο σφάλμα."))
     };
 
-    const surnameChange = e => {
-        setSurname(e.target.value)
+    const handleChange = evt => {
+        const value = evt.target.value;
+        setState({
+            ...state,
+            [evt.target.name]: value
+        });
     };
-
-    const nameChange = e => {
-        setName(e.target.value)
-    };
-
-    const emailChange = e => {
-        setEmail(e.target.value)
-    };
-
-    const cityChange = e => {
-        setCity(e.target.value)
-    };
-
-    const zipChange = e => {
-        setZip(e.target.value)
-    };
-
-    const objectChange = e => {
-        setObject(e.target.value)
-    };
-
-    const infoChange = e => {
-        setInfo(e.target.value)
-    };
-
-    const priceChange = e => {
-        setPrice(e.target.value)
-    };
-
 
     return (
         <div style={{backgroundColor: '#ffffff', height: 'calc(100vh - 10em)', width: 'calc(100vw - 5em)'}}>
@@ -83,21 +62,19 @@ function AddProduct() {
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 id="firstName"
-                                name="firstName"
+                                name="name"
                                 label="Όνομα"
                                 fullWidth
-                                value={name}
-                                onChange={nameChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 id="lastName"
-                                name="lastName"
+                                name="surname"
                                 label="Επώνυμο"
                                 fullWidth
-                                value={surname}
-                                onChange={surnameChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -106,11 +83,11 @@ function AddProduct() {
                                 name="email"
                                 label="Email"
                                 fullWidth
-                                onChange={emailChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField id="city" name="city" label="Πόλη" fullWidth onChange={cityChange}/>
+                            <TextField id="city" name="city" label="Πόλη" fullWidth onChange={handleChange}/>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -118,7 +95,7 @@ function AddProduct() {
                                 name="zip"
                                 label="Τ.Κ"
                                 fullWidth
-                                onChange={zipChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -127,7 +104,7 @@ function AddProduct() {
                                 name="object"
                                 label="Αντικείμενο προς πώληση"
                                 fullWidth
-                                onChange={objectChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -136,7 +113,7 @@ function AddProduct() {
                                 name="info"
                                 label="Περιγραφή αντικειμένου"
                                 fullWidth
-                                onChange={infoChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -145,7 +122,7 @@ function AddProduct() {
                                 name="price"
                                 label="Τιμή αντικειμένου"
                                 fullWidth
-                                onChange={priceChange}
+                                onChange={handleChange}
                             />
                         </Grid>
                     </Grid>

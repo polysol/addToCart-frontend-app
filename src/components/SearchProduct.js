@@ -105,7 +105,7 @@ function SearchProduct() {
     const apiCall = async () => {
         await axios.get("http://localhost:3500/all")
             .then(res => {
-                res.data.forEach(el => {
+                res.data.map(el => {
                     temp_data.push(Object.values(el));
                 });
             }).catch(() => alert("Παρουσιάστηκε κάποιο σφάλμα."));
